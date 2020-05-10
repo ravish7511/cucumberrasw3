@@ -11,8 +11,10 @@ glue= {"stepdefinitions"},
 monochrome = true,
 strict=true,
 dryRun = false,
-plugin= {"pretty"},
-tags = {"@sanity"})
+tags = {"@ft"},
+//plugin= {"pretty","html:reports/scenario"}
+plugin = {"pretty","de.monochromata.cucumber.report.PrettyReports:target/cucumber"}
+)
 public class TestRunner {
 
 }
