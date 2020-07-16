@@ -11,7 +11,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import generic.BrowserFactory;
+
 import generic.FileManager;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -24,13 +24,14 @@ import pom.Login_Page;
 public class Steps {
 	WebDriver driver;
 	String val;
-	BrowserFactory bff = new BrowserFactory();
+	//BrowserFactory bff = new BrowserFactory();
 
 	Login_Page lp;
 
 	@Before // global hooks precondition
 	public void openAppn() {
-		driver = bff.getBrowser("chrome");
+			System.setProperty("webdriver.chrome.driver", "./driver1/chromedriver.exe");
+			driver=new ChromeDriver();
 		FileManager fm = new FileManager();
 		driver.get(fm.getApplicationUrl());
 		driver.manage().timeouts().implicitlyWait(fm.getImplicityWait(), TimeUnit.SECONDS);
